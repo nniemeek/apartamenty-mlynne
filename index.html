@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta name="google-site-verification" content="5FBH4h51FewefYxW0Mqt6DNWJtokFOAP-Oz0zOo306Q" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+
+    <title>Apartamenty młynne</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background:
+                radial-gradient(circle at top left, #fff7e8 0%, transparent 35%),
+                radial-gradient(circle at bottom right, #f6dfbd 0%, transparent 35%),
+                #f8f0e3;
+            color: #4a3625;
+        }
+
+        /* =========================
+           GÓRA STRONY
+        ========================= */
+
+        header {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .small-title {
+            font-family: Arial, sans-serif;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-size: 13px;
+            color: #9b7954;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(48px, 9vw, 105px);
+            font-weight: 400;
+            color: #5a3e28;
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .header-text {
+            max-width: 650px;
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #775d45;
+        }
+
+        .scroll-button {
+            margin-top: 45px;
+            text-decoration: none;
+            color: white;
+            background: #9b7650;
+            padding: 15px 32px;
+            border-radius: 40px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .scroll-button:hover {
+            background: #765437;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           GALERIA GÓRNA
+        ========================= */
+
+        .top-gallery {
+            width: 92%;
+            max-width: 1250px;
+            margin: 0 auto 100px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 220px;
+            gap: 12px;
+        }
+
+        .top-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(77, 51, 28, 0.12);
+            transition: 0.4s;
+        }
+
+        .top-gallery img:hover {
+            transform: scale(1.025);
+        }
+
+        .top-gallery img:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .top-gallery img:nth-child(5) {
+            grid-column: span 2;
+        }
+
+        /* =========================
+           SEKCJA POKOI
+        ========================= */
+
+        .rooms-section {
+            width: 92%;
+            max-width: 1200px;
+            margin: auto;
+            padding-bottom: 110px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading span {
+            display: block;
+            font-family: Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 12px;
+            color: #a27d58;
+            margin-bottom: 15px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(36px, 5vw, 60px);
+            font-weight: 400;
+            color: #5a3e28;
+        }
+
+        .section-heading p {
+            max-width: 650px;
+            margin: 20px auto 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            color: #806b56;
+        }
+
+        .rooms {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .room-card {
+            background: rgba(255,255,255,0.72);
+            border: 1px solid rgba(155,118,80,0.18);
+            border-radius: 24px;
+            padding: 12px;
+            cursor: pointer;
+            box-shadow: 0 15px 45px rgba(77, 51, 28, 0.08);
+            transition: 0.35s;
+        }
+
+        .room-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 20px 55px rgba(77, 51, 28, 0.15);
+        }
+
+        .room-image {
+            height: 310px;
+            overflow: hidden;
+            border-radius: 17px;
+        }
+
+        .room-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .room-card:hover .room-image img {
+            transform: scale(1.05);
+        }
+
+        .room-info {
+            padding: 22px 15px 18px;
+        }
+
+        .room-info h3 {
+            font-size: 29px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            color: #563b27;
+        }
+
+        .room-info p {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #806b56;
+        }
+
+        .click-info {
+            margin-top: 13px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #a17a51;
+        }
+
+        /* =========================
+           STOPKA
+        ========================= */
+
+        footer {
+            background: #e9d5b8;
+            padding: 75px 20px;
+            text-align: center;
+        }
+
+        footer h2 {
+            font-size: 43px;
+            font-weight: 400;
+            color: #533925;
+            margin-bottom: 30px;
+        }
+
+        .contact {
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            color: #634a33;
+            margin-bottom: 28px;
+        }
+
+        .phone {
+            font-size: 25px;
+            font-weight: bold;
+            color: #543924;
+            text-decoration: none;
+        }
+
+        .booking-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 16px 42px;
+            border-radius: 50px;
+            background: #80603f;
+            color: white;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .booking-button:hover {
+            background: #573c26;
+            transform: translateY(-3px);
+        }
+
+        .booking-info {
+            margin-top: 15px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            color: #775c42;
+        }
+
+        /* =========================
+           OKNO POKOJU
+        ========================= */
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(39, 27, 17, 0.78);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            width: 100%;
+            max-width: 1050px;
+            max-height: 94vh;
+            overflow-y: auto;
+            background: #fffaf2;
+            border-radius: 25px;
+            position: relative;
+            box-shadow: 0 30px 100px rgba(0,0,0,0.35);
+        }
+
+        .close {
+            position: absolute;
+            right: 18px;
+            top: 14px;
+            width: 43px;
+            height: 43px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.92);
+            color: #533925;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .modal-photo {
+            position: relative;
+            height: 550px;
+            background: #d9c8b3;
+        }
+
+        .modal-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #2f261e;
+            border-radius: 25px 25px 0 0;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 52px;
+            height: 52px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            color: #4f3926;
+            font-size: 30px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .arrow:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .arrow.left {
+            left: 18px;
+        }
+
+        .arrow.right {
+            right: 18px;
+        }
+
+        .photo-counter {
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.55);
+            color: white;
+            padding: 7px 15px;
+            border-radius: 30px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        .modal-details {
+            padding: 32px 38px 40px;
+        }
+
+        .modal-details h2 {
+            font-size: 39px;
+            font-weight: 400;
+            color: #563b27;
+            margin-bottom: 15px;
+        }
+
+        .modal-description {
+            font-family: Arial, sans-serif;
+            color: #725e49;
+            line-height: 1.75;
+            font-size: 15px;
+            max-width: 800px;
+        }
+
+        .modal-contact {
+            margin-top: 28px;
+            padding-top: 23px;
+            border-top: 1px solid #e2d3c0;
+            font-family: Arial, sans-serif;
+            color: #654d36;
+        }
+
+        .modal-phone {
+            display: inline-block;
+            margin-top: 7px;
+            color: #543924;
+            font-size: 21px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .modal-booking {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 13px 25px;
+            border-radius: 30px;
+            background: #80603f;
+            color: white;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .modal-booking:hover {
+            background: #573c26;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            header {
+                min-height: 75vh;
+            }
+
+            .top-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 160px;
+            }
+
+            .top-gallery img:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+
+            .rooms {
+                grid-template-columns: 1fr;
+            }
+
+            .room-image {
+                height: 260px;
+            }
+
+            .modal-photo {
+                height: 380px;
+            }
+
+            .modal-details {
+                padding: 25px;
+            }
+
+            .modal-details h2 {
+                font-size: 31px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            h1 {
+                font-size: 52px;
+            }
+
+            .top-gallery {
+                width: 94%;
+                gap: 8px;
+                grid-auto-rows: 120px;
+            }
+
+            .rooms-section {
+                width: 94%;
+            }
+
+            .room-image {
+                height: 230px;
+            }
+
+            .modal {
+                padding: 8px;
+            }
+
+            .modal-photo {
+                height: 300px;
+            }
+
+            .arrow {
+                width: 43px;
+                height: 43px;
+                font-size: 24px;
+            }
+
+            .arrow.left {
+                left: 10px;
+            }
+
+            .arrow.right {
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAGŁÓWEK
+    ========================= -->
+
+    <header>
+
+        <div class="small-title">
+            Muszyna • Beskid Sądecki
+        </div>
+
+        <h1>Apartamenty młynne</h1>
+
+        <p class="header-text">
+            Przytulne apartamenty w wyjątkowym miejscu.
+            Zobacz nasze pokoje, obejrzyj zdjęcia i wybierz
+            miejsce idealne na Twój pobyt.
+        </p>
+
+        <a href="#pokoje" class="scroll-button">
+            ZOBACZ POKOJE ↓
+        </a>
+
+    </header>
+
+
+    <!-- =========================
+         GALERIA NA GÓRZE
+    ========================= -->
+
+    <section class="top-gallery">
+
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/806239086.jpg?k=e8ce4d731da85a14606f68c0dc4f62fb8a6d5599c8ef61ed1d258661cd483d9d&o=">
+
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/676285804.jpg?k=662706f414b1e050991457d78fb5b28d24db6e0272101e9c98e61bd7fa871724&o=">
+
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/538996310.jpg?k=bc2f01a0bc8cdf63174e90629d9f59514c50c8e5224cd6738ce193a189802c1b&o=">
+
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/538996323.jpg?k=54866437dfd29ff455ba1a560adb2e68de583b92b47231b068e73d44728c3ea5&o=">
+
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/538995038.jpg?k=11c4ee2e55e602a7408d53520a1d4830f6079dc570d5aa1bc5acda3cdb31313f&o=">
+
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/538996059.jpg?k=63e92d67fdea2d9ce4f249d12c2b5c5b7fe4e54de9c30a01c9eb0e5460a4a123&o=">
+
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/538996060.jpg?k=3fa5f64b228b4ef2ef247ee14f131a547d484ecc9459b1d8300f580dd5fbd3f5&o=">
+
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/463786785.jpg?k=7ef8a59bf33ee170587bdccb48380f71a12d00a713b834518525e20468141603&o=">
+
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/491562979.jpg?k=37a88ef2fceb99ecf4696c3965e6126f86f22402fbe943e8e47ec2449363fb72&o=">
+
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/412602094.jpg?k=8836e40aeb720447e453ec8765798801590e6c0b550209550266cacd7ac0f0bf&o=">
+
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/538996094.jpg?k=cb71c5331b289e46d9e3b77447a2217694ad123e13681a7c0abca0833eec33ea&o=">
+
+    </section>
+
+
+    <!-- =========================
+         POKOJE
+    ========================= -->
+
+    <section class="rooms-section" id="pokoje">
+
+        <div class="section-heading">
+            <span>Nasza oferta</span>
+            <h2>Wybierz pokój</h2>
+
+            <p>
+                Kliknij wybrany pokój, aby zobaczyć więcej zdjęć,
+                przeczytać krótki opis oraz znaleźć informacje
+                dotyczące kontaktu i rezerwacji.
+            </p>
+        </div>
+
+
+        <div class="rooms">
+
+            <!-- POKÓJ 1 -->
+
+            <div class="room-card" onclick="openRoom(1)">
+
+                <div class="room-image">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/413803868.jpg?k=b5f5a00de9afd80d5e3d1c11d6e5d16c8b9f87eefc8355d447adcd07ec862483&o=">
+                </div>
+
+                <div class="room-info">
+                    <h3>Pokój 1</h3>
+
+                    <p>
+                        Przytulna przestrzeń przygotowana
+                        z myślą o spokojnym wypoczynku.
+                    </p>
+
+                    <div class="click-info">
+                        Kliknij, aby zobaczyć zdjęcia →
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- POKÓJ 2 -->
+
+            <div class="room-card" onclick="openRoom(2)">
+
+                <div class="room-image">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/351647555.jpg?k=542e14311502ad7f3836eec8e74f7de60f3b39efb810c2ae2b11705b52669f2c&o=">
+                </div>
+
+                <div class="room-info">
+                    <h3>Pokój 2</h3>
+
+                    <p>
+                        Komfortowy pokój z przyjemnym,
+                        domowym charakterem.
+                    </p>
+
+                    <div class="click-info">
+                        Kliknij, aby zobaczyć zdjęcia →
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- POKÓJ 3 -->
+
+            <div class="room-card" onclick="openRoom(3)">
+
+                <div class="room-image">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/676285788.jpg?k=24c604027aaf8284fad93631f3b466677401a70390b97101a6ccc49fe7af425a&o=">
+                </div>
+
+                <div class="room-info">
+                    <h3>Pokój 3</h3>
+
+                    <p>
+                        Jasne i komfortowe wnętrze
+                        idealne na wypoczynek.
+                    </p>
+
+                    <div class="click-info">
+                        Kliknij, aby zobaczyć zdjęcia →
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- POKÓJ 4 -->
+
+            <div class="room-card" onclick="openRoom(4)">
+
+                <div class="room-image">
+                    <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/413637199.jpg?k=1eb4910c5c505705e9891f1f3feb526016e389cba8c86218f262e95fbb50f298&o=">
+                </div>
+
+                <div class="room-info">
+                    <h3>Pokój 4</h3>
+
+                    <p>
+                        Przyjemne wnętrze stworzone
+                        z myślą o wygodnym pobycie.
+                    </p>
+
+                    <div class="click-info">
+                        Kliknij, aby zobaczyć zdjęcia →
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         STOPKA
+    ========================= -->
+
+    <footer>
+
+        <h2>Apartamenty młynne</h2>
+
+        <div class="contact">
+            <div>Rezerwacje i kontakt</div>
+
+            <a class="phone" href="tel:+48798507538">
+                798 507 538
+            </a>
+        </div>
+
+        <a
+            class="booking-button"
+            href="https://www.booking.com/hotel/pl/apartamenty-mlynne-muszyna.pl.html?label=pl-pl-booking-desktop-_daRgHoAMAxzZxKo2583uAS652829001079%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-65526620%3Alp20852%3Ali%3Adec%3Adm&aid=2311236&ucfs=1&arphpl=1&checkin=2026-09-12&checkout=2026-09-13&dest_id=8028846&dest_type=hotel&group_adults=2&req_adults=2&no_rooms=1&group_children=1&req_children=1&age=14&req_age=14&hpos=1&hapos=1&sr_order=popularity&srpvid=3d2e8184665c08e8&srepoch=1789237518&soh=1&from=searchresults&activeTab=photosGallery#no_availability_msg"
+            target="_blank"
+        >
+            BOOKING
+        </a>
+
+        <div class="booking-info">
+            Kliknij przycisk BOOKING, aby przejść do rezerwacji.
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         OKNO Z POKOJEM
+    ========================= -->
+
+    <div class="modal" id="roomModal">
+
+        <div class="modal-content">
+
+            <button class="close" onclick="closeRoom()">
+                ×
+            </button>
+
+            <div class="modal-photo">
+
+                <img id="modalImage" src="">
+
+                <button class="arrow left" onclick="previousPhoto(event)">
+                    ‹
+                </button>
+
+                <button class="arrow right" onclick="nextPhoto(event)">
+                    ›
+                </button>
+
+                <div class="photo-counter" id="photoCounter">
+                    1 / 1
+                </div>
+
+            </div>
+
+
+            <div class="modal-details">
+
+                <h2 id="modalTitle">
+                    Pokój 1
+                </h2>
+
+                <p class="modal-description" id="modalDescription">
+                </p>
+
+
+                <div class="modal-contact">
+
+                    <div>
+                        📞 Rezerwacje i kontakt:
+                    </div>
+
+                    <a
+                        class="modal-phone"
+                        href="tel:+48798507538"
+                    >
+                        798 507 538
+                    </a>
+
+                    <br>
+
+                    <a
+                        class="modal-booking"
+                        href="https://www.booking.com/hotel/pl/apartamenty-mlynne-muszyna.pl.html?label=pl-pl-booking-desktop-_daRgHoAMAxzZxKo2583uAS652829001079%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-65526620%3Alp20852%3Ali%3Adec%3Adm&aid=2311236&ucfs=1&arphpl=1&checkin=2026-09-12&checkout=2026-09-13&dest_id=8028846&dest_type=hotel&group_adults=2&req_adults=2&no_rooms=1&group_children=1&req_children=1&age=14&req_age=14&hpos=1&hapos=1&sr_order=popularity&srpvid=3d2e8184665c08e8&srepoch=1789237518&soh=1&from=searchresults&activeTab=photosGallery#no_availability_msg"
+                        target="_blank"
+                    >
+                        BOOKING — REZERWUJ
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        const bookingLink =
+        "https://www.booking.com/hotel/pl/apartamenty-mlynne-muszyna.pl.html?label=pl-pl-booking-desktop-_daRgHoAMAxzZxKo2583uAS652829001079%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-65526620%3Alp20852%3Ali%3Adec%3Adm&aid=2311236&ucfs=1&arphpl=1&checkin=2026-09-12&checkout=2026-09-13&dest_id=8028846&dest_type=hotel&group_adults=2&req_adults=2&no_rooms=1&group_children=1&req_children=1&age=14&req_age=14&hpos=1&hapos=1&sr_order=popularity&srpvid=3d2e8184665c08e8&srepoch=1789237518&soh=1&from=searchresults&activeTab=photosGallery#no_availability_msg";
+
+
+        const rooms = {
+
+            1: {
+                title: "Pokój 1",
+
+                description:
+                "Przytulny i komfortowy pokój przygotowany z myślą o spokojnym wypoczynku. Wnętrze łączy wygodę z ciepłym, domowym charakterem. Przejrzyj zdjęcia, aby zobaczyć dokładnie, jak wygląda pokój.",
+
+                photos: [
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/413803868.jpg?k=b5f5a00de9afd80d5e3d1c11d6e5d16c8b9f87eefc8355d447adcd07ec862483&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/413803844.jpg?k=649eb214aca184ba9be437457d1f1ef030c29bc2b1c9c503a5037304a093ae98&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/413803875.jpg?k=f51245a0a7fddcc4bd991176debdc3d31f346a8da440f0c970b852e722d5ba56&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/413803878.jpg?k=e41ed1f248b700524dd1ee947f60f1bafe6aa238c1f734b27ef0c8019ba9a87e&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/413803863.jpg?k=ac9b8591bf79a63e0d6346921b982e8ad04302967fdef99aeaa38003b090e333&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/413803882.jpg?k=d629e6e9dd238d3112278c3abb141450546e8d9461c66bc7cd0164f8550dc239&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/413803858.jpg?k=9a6a68a2d16b2afcd1b88c19d380a5a027e5f26844d1858517769de3ef739ec8&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/413803852.jpg?k=eda02c221e59fbef5786df335917fee54dbfd0a52b9030c3edb0ddc644951b21&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/697022812.jpg?k=8612a96a4e394b33a6b9e50254a90b1e27eaa2128fe8c4229410a3ea01106189&o="
+
+                ]
+            },
+
+
+            2: {
+                title: "Pokój 2",
+
+                description:
+                "Komfortowy pokój o przyjemnym, domowym charakterze. Zobacz galerię zdjęć i poznaj wnętrze przed dokonaniem rezerwacji.",
+
+                photos: [
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/351647555.jpg?k=542e14311502ad7f3836eec8e74f7de60f3b39efb810c2ae2b11705b52669f2c&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/331509961.jpg?k=42e38444fd3adf9fde7c8f3eba4f87ddf719bb10b033d9474b8ddeb7625457fd&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/331509958.jpg?k=a5757c1b29336e5f5f672023ce86f606034b60a2831bfd4824ae644950458f46&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/331509964.jpg?k=f4dfe3692c11746625a37760f205bfc169df7451d144db5692786fc8880bf01e&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/413637187.jpg?k=b3b6ddaaa1ad4346fcb2b8b550da52764f9c5be2f81c6f920f0f06ee7a6a5352&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/413637192.jpg?k=eab12b3316b7eeca2b3119b021300fb8eb6ab699a8d062dd2b4d59d948d85ef5&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/413637190.jpg?k=643587629cee1b930a9efa4e4b39f597bed4dbbe423016ababb792b570e414e8&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/413637202.jpg?k=b435ed7f83125d24c08525e4509d6199b92cba420ccd68a8d1f0927d745fc292&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/413637186.jpg?k=b10050a642197442ab3f1827ecf81cd16114828c0a2e7c5863222998a54bf939&o="
+
+                ]
+            },
+
+
+            3: {
+                title: "Pokój 3",
+
+                description:
+                "Jasne i komfortowe wnętrze stworzone z myślą o wygodnym pobycie. Zapraszamy do obejrzenia wszystkich zdjęć pokoju.",
+
+                photos: [
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/676285788.jpg?k=24c604027aaf8284fad93631f3b466677401a70390b97101a6ccc49fe7af425a&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/676285783.jpg?k=a28267ea81e3e4d2cf7a81172952491908b451f11ca038488198d2bfb4979f9d&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/539026051.jpg?k=1b329bbef05cb197ef06dd3072b0ecff185f417cb2a3db0ea019bd69d143a7e0&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/539026049.jpg?k=8127605a90581c334a92daa768072955067b0ae907e6a8aacafa6949339d38cf&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/331509886.jpg?k=af5357cab8e51b37554fb84c1c17b5595c929a23943011612acf027870dd4ee6&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/331509971.jpg?k=9ef9414ca2272ffe99724bc70e6606bc6b60497eb18e3c16a93b0e7ab2d3f718&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/539026076.jpg?k=1a598fa0660f31f8531f4be40ccac7e03b482c8b90adb3862a3de3c5a51e605d&o="
+
+                ]
+            },
+
+
+            4: {
+                title: "Pokój 4",
+
+                description:
+                "Przyjemne i funkcjonalne wnętrze stworzone z myślą o wygodnym pobycie. Obejrzyj galerię zdjęć i zobacz pokój.",
+
+                photos: [
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/413637199.jpg?k=1eb4910c5c505705e9891f1f3feb526016e389cba8c86218f262e95fbb50f298&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/413637195.jpg?k=d2ba491511f3639b550d1c6b04337d4b18177c70883ba456a6a73c0789a28d5c&o=",
+
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/463786868.jpg?k=40a6e50a65b0775d0e4ab7bf3d1c275ee5d701bf306660f485b26908bb518241&o="
+
+                ]
+            }
+
+        };
+
+
+        let currentRoom = 1;
+        let currentPhoto = 0;
+
+
+        function openRoom(roomNumber) {
+
+            currentRoom = roomNumber;
+            currentPhoto = 0;
+
+            const room = rooms[roomNumber];
+
+            document.getElementById("modalTitle").textContent =
+                room.title;
+
+            document.getElementById("modalDescription").textContent =
+                room.description;
+
+            document.getElementById("modalImage").src =
+                room.photos[currentPhoto];
+
+            updateCounter();
+
+            document.getElementById("roomModal")
+                .classList.add("active");
+
+            document.body.style.overflow = "hidden";
+        }
+
+
+        function closeRoom() {
+
+            document.getElementById("roomModal")
+                .classList.remove("active");
+
+            document.body.style.overflow = "auto";
+        }
+
+
+        function updateCounter() {
+
+            const room = rooms[currentRoom];
+
+            document.getElementById("photoCounter").textContent =
+                (currentPhoto + 1) + " / " + room.photos.length;
+        }
+
+
+        function nextPhoto(event) {
+
+            event.stopPropagation();
+
+            const room = rooms[currentRoom];
+
+            currentPhoto++;
+
+            if (currentPhoto >= room.photos.length) {
+                currentPhoto = 0;
+            }
+
+            document.getElementById("modalImage").src =
+                room.photos[currentPhoto];
+
+            updateCounter();
+        }
+
+
+        function previousPhoto(event) {
+
+            event.stopPropagation();
+
+            const room = rooms[currentRoom];
+
+            currentPhoto--;
+
+            if (currentPhoto < 0) {
+                currentPhoto = room.photos.length - 1;
+            }
+
+            document.getElementById("modalImage").src =
+                room.photos[currentPhoto];
+
+            updateCounter();
+        }
+
+
+        /* Kliknięcie poza oknem zamyka galerię */
+
+        document.getElementById("roomModal")
+            .addEventListener("click", function(event) {
+
+                if (event.target === this) {
+                    closeRoom();
+                }
+
+            });
+
+
+        /* ESC zamyka galerię */
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+                closeRoom();
+            }
+
+            if (event.key === "ArrowRight") {
+                nextPhoto(event);
+            }
+
+            if (event.key === "ArrowLeft") {
+                previousPhoto(event);
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
